@@ -1,0 +1,93 @@
+<html>
+	<head>
+		<title>untitled</title>
+		<link rel="stylesheet" href="./../css/bootstrap.css" />
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+			integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="./../css/main.css" />
+
+	
+	</head>
+	<body>
+	
+		<div class="container p-0">
+			<header class="pt-3 pl-3 pr-3 pb-0">
+				<div class="section position-absolute">
+					<p class="text-right m-2">
+						<span id="closeBtn" title="close"> <i class="fas fa-window-close"></i> </span>
+					</p>
+				</div>
+				<div class="section d-block clearfix border-bottom">
+					<h2 class="card-title text-center text-capitalize text-secondary">Quick-notify</h2>
+				</div>
+			</header>
+			<main class="pl-3 pr-3 pt-2 pb-0 ">
+				<div class="p-2 border mb-3 alert-info rounded">
+					<div class="section p-0" id="notification" ></div>
+					<div class="text-center rounded text-secondary" id="currenTime"><p class="text-dark">Loading...</p></div>
+				</div>
+				
+				<div class="section" id="user-input-wrapper">
+					<div class="shadow-sm p-2 rounded">
+						<div class="input-group mb-2" id="btn-wrapper-top">
+							<input
+								type="number"
+								class="form-control"
+								id="userInput"
+								min="1"
+								max="10080"
+								value=""
+								placeholder="eg.,1 for minute(s)."
+								required
+							/>
+						</div>
+						<div class="input-group mb-2" id="btn-wrapper-bottom">
+							<textarea class="form-control w-100 overflow-hidden rounded" id="userMessage" placeholder="Tell me what i will notify you about."></textarea>
+							</textarea>
+						</div>
+						<div class="mb-2" id="button-groups">
+					</div>
+					<div
+						class="btn-toolbar d-flex"
+						role="toolbar"
+						aria-label="Toolbar with button groups"
+					>
+						<button
+							type="button"
+							class="btn rounded-0 flex-grow-1 border-right"
+							id="alarmOn"
+							data-toggle="tooltip"
+							title="Activate"
+						>
+							<i class="fas fa-bell"></i>
+						</button>
+						<button
+							type="button"
+							class="btn rounded-0 flex-grow-1"
+							id="alarmOff"
+							data-toggle="tooltip"
+							title="Cancel"
+						>
+							<i class="fas fa-bell-slash"></i>
+						</button>
+					</div>
+				</div>
+				</div>
+
+				
+			</main>
+			<footer class="p-2 "> 
+			</footer>
+		</div>
+		
+	</body>
+	<script src="./../js/library/jquery-3.3.1.slim.min.js"></script>
+		<script src="./../js/library/moment.js"></script>
+		<script src="./../js/library/popper.min.js"></script>
+		<script src="./../js/library/bootstrap.min.js"></script>
+		<script src="./../js/popup.js"></script>
+</html>

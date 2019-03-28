@@ -1,0 +1,45 @@
+
+/* Common elements */
+body {
+    width:320px;
+   height:320px;
+    color: #202124;
+    background-color: #f1f3f4;
+   }
+.section.position-absolute{
+    right: 0;
+    top: 0;
+}
+#closeBtn {
+    cursor: pointer;
+}
+/* Header */
+/* Main */
+.mb-3.alert-info {
+    min-height: 50px;
+    overflow: auto;
+}
+.alert-dark.rounded{
+    min-height: 80px;
+}
+#end-time{
+    word-break: break-all;
+}
+#userMessage{
+     min-height: 100px;
+    text-align: left;
+}
+.msg{
+    word-break: break-all;
+}
+/* Footer*/
+footer {
+    
+}
+button .fas {
+   font-size: 1.3em;
+   color:#2a21da;
+}
+.btn:disabled > .fas {
+    color: gray;
+}
