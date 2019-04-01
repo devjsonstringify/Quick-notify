@@ -52,7 +52,7 @@ function setAlarmTime(timestamp) {
 	const msg = `<h6>I will notify you at </h6>
 	<p class="text-dark msg">${calculatedTime}
 	regarding ${message}</p>`
-	setNotification('Success', 'text-success', msg)
+	setNotification('Well Done!', 'text-success', msg)
 }
 
 // * Set alarm end
@@ -100,16 +100,16 @@ function setAlarm(e) {
 
 // * Notification
 function setNotification(title, className, message, btn) {
-	const closeBtn = `<button type="button" class="close section position-absolute" data-dismiss="alert" aria-label="Close">
+	const closeBtn = `<button type="button" class=" close section position-absolute" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>`
-	const html = `<div class='fade show mb-2 ${
+	const html = `<div class='alert fade show mb-2 ${
 		className == 'text-success' ? '' : 'border-bottom'
 	}' role='alert'>
 		${btn ? closeBtn : ''}
 		<strong class='${className}'> ${title}!</strong>
-		<p class='text-secondary notification-message mb-0'> ${message}</p>
-	</div>`
+		<p class='${className} notification-message mb-0 border-bottom-1'> ${message}</p>
+		</div>`
 	notification.innerHTML = html
 }
 
