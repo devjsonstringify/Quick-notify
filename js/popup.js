@@ -9,11 +9,6 @@ const alarmOff = document.querySelector('#alarmOff')
 const notification = document.querySelector('#notification')
 const userInputMessage = document.querySelector('#userMessage')
 
-// * Automatically close window when alarm is fired
-chrome.alarms.onAlarm.addListener(function(alarms) {
-	clearAlarm()
-})
-
 // * Updating time
 async function displayTime() {
 	const currTime = await moment().format('ddd, h:mm:ss a')
@@ -30,6 +25,10 @@ chrome.browserAction.getBadgeText({}, function(isActive) {
 		chrome.storage.sync.get(['minutes', 'message'], function(item) {
 			setAlarmTime(item.minutes)
 		})
+	} else {
+		// * Clear all previous settings
+		chrome.browserAction.setBadgeText({ text: '' })
+		chrome.alarms.clearAll()
 	}
 })
 
@@ -59,7 +58,6 @@ function setAlarmTime(timestamp) {
 function timeRemaining(minutes) {
 	chrome.alarms.getAll(function(alarms) {
 		console.log(alarms)
-		console.log(alarms[0])
 	})
 }
 

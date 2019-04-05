@@ -3,7 +3,7 @@
 	"description": "This is extension was built by needs, i want something that will notify me in periodically or at a specified time in the future. So i develop this chrome extension with basic user interface and does the job.  Just input the time when to fire or notify you ( for now only in minute(s) is allowed) Then tell something what to remind you about.  Will be adding more features, also if you like my extension let's talk i love talking to you.",
 	"version": "1.0.0",
 	"manifest_version": 2,
-	"permissions": ["alarms", "notifications", "storage", "tabs"],
+	"permissions": ["alarms", "background", "notifications", "storage", "tabs"],
 	"background": {
 		"scripts": ["background.js"],
 		"persistent": false
