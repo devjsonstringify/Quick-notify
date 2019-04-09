@@ -1,38 +1,35 @@
-;('use strict')
+; ('use strict')
 
-// * Globals
+// * Globals variables
 const currenTime = moment().format('ddd, h:mm:ss a')
 let userInput = document.querySelector('input[type="number"]')
 const closeBtn = document.querySelector('#closeBtn')
 const alarmBtn = document.querySelector('#alarmOn')
 const alarmOff = document.querySelector('#alarmOff')
 const notification = document.querySelector('#notification')
-const userInputMessage = document.querySelector('#userMessage')
+let userInputMessage = document.querySelector('#userMessage')
 
-// * Updating time
+// * Show current time 
 async function displayTime() {
-	const currTime = await moment().format('ddd, h:mm:ss a')
-	const html = `<h6 class="mb-0"> Current time is: <p class="mb-0 text-dark">${currTime}</p></h6>`
+	const time = await moment().format('ddd, h:mm:ss a')
+	const html = `<h6 class="mb-0"> Current time is: <p class="mb-0 text-dark">${time}</p></h6>`
 	document.querySelector('#currenTime').innerHTML = html
 }
 
+// * Update current time
 setInterval(displayTime, 1000)
 
 // * At first check input tag if alarm already set if so disable it
-chrome.browserAction.getBadgeText({}, function(isActive) {
+chrome.browserAction.getBadgeText({}, function (isActive) {
 	if (isActive == 'On') {
 		disabledUserInput()
-		chrome.storage.sync.get(['minutes', 'message'], function(item) {
-			setAlarmTime(item.minutes)
+		chrome.storage.sync.get(['minutes', 'message'], function (item) {
+			setAlarmTime(item.minutes, item.message)
 		})
-	} else {
-		// * Clear all previous settings
-		chrome.browserAction.setBadgeText({ text: '' })
-		chrome.alarms.clearAll()
 	}
 })
 
-// * Disable and value empty of userInput
+// * Disabled users input after successful input
 function disabledUserInput() {
 	alarmBtn.disabled = true
 	userInput.style.display = 'none'
@@ -41,22 +38,20 @@ function disabledUserInput() {
 }
 
 // * Set alarm end
-function setAlarmTime(timestamp) {
-	let message = userInputMessage.value
+function setAlarmTime(timestamp, message) {
 
 	let calculatedTime = moment()
 		.add(timestamp, 'm')
 		.format('ddd, h:mm:ss:a')
 	// Display user input
-	const msg = `<h6>I will notify you at </h6>
-	<p class="text-dark msg">${calculatedTime}
-	regarding ${message}</p>`
-	setNotification('Well Done!', 'text-success', msg)
+	const msg = `<p class="text-dark msg">I will notify you at,
+	${calculatedTime} regarding ${message}</p>`
+	setNotification('Well Done!', 'text-success', msg, false)
 }
 
 // * Set alarm end
-function timeRemaining(minutes) {
-	chrome.alarms.getAll(function(alarms) {
+function timeRemaining() {
+	chrome.alarms.getAll(function (alarms) {
 		console.log(alarms)
 	})
 }
@@ -89,7 +84,10 @@ function setAlarm(e) {
 		})
 		// * Toggle events
 		disabledUserInput()
-		setAlarmTime(minutes)
+		chrome.storage.sync.get(['minutes', 'message'], function (item) {
+			setAlarmTime(item.minutes, item.message)
+
+		})
 	} else {
 		// * Validate
 		setNotification('Error', 'text-danger', 'All fields are required', true)
@@ -103,7 +101,7 @@ function setNotification(title, className, message, btn) {
   </button>`
 	const html = `<div class='alert fade show mb-2 ${
 		className == 'text-success' ? '' : 'border-bottom'
-	}' role='alert'>
+		}' role='alert'>
 		${btn ? closeBtn : ''}
 		<strong class='${className}'> ${title}!</strong>
 		<p class='${className} notification-message mb-0 border-bottom-1'> ${message}</p>
@@ -125,6 +123,8 @@ function closeWindow(e) {
 	e.preventDefault
 	window.close()
 }
+
+// * Events
 
 closeBtn.addEventListener('click', closeWindow, false)
 alarmBtn.addEventListener('click', setAlarm, false)
