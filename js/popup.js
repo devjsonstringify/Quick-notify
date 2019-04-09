@@ -17,7 +17,7 @@ async function displayTime() {
 }
 
 // * Update current time
-setInterval(displayTime, 1000)
+const updatingTime = setInterval(displayTime, 1000)
 
 // * At first check input tag if alarm already set if so disable it
 chrome.browserAction.getBadgeText({}, function (isActive) {
@@ -35,6 +35,7 @@ function disabledUserInput() {
 	userInput.style.display = 'none'
 	userInputMessage.style.display = 'none'
 	document.querySelector('#currenTime').style.display = 'none'
+	clearInterval(updatingTime) // Stop the current time from updating..
 }
 
 // * Set alarm end
@@ -84,7 +85,7 @@ function setAlarm(e) {
 		})
 		// * Toggle events
 		disabledUserInput()
-		chrome.storage.sync.get(['minutes', 'message'], function (item) {
+	  chrome.storage.sync.get(['minutes', 'message'], function (item) {
 			setAlarmTime(item.minutes, item.message)
 
 		})
