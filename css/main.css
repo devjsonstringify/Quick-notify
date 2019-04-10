@@ -1,10 +1,19 @@
 
+/* vars */
+:root{
+    --white:#fff;
+    --text-font:#202124;
+    --button-disabled:#ebebe0;
+    --button-icon:#2a21da;
+}
+
 /* Common elements */
 body {
     width:320px;
-   height:320px;
-    color: #202124;
-    background-color: #f1f3f4;
+    height:320px;
+    color: var(--text-font);
+    background-color: var(--white);
+    font-family: monospace;
    }
 .section.position-absolute{
     right: 0;
@@ -25,21 +34,23 @@ body {
 #end-time{
     word-break: break-all;
 }
-#userMessage{
-     min-height: 100px;
+#userMessage {
+    max-height: 100%;
     text-align: left;
+    min-height: calc(100% - 40%);
 }
 .msg{
     word-break: break-all;
 }
 /* Footer*/
-footer {
-    
+.btn-toolbar{
+    /* bottom: 0; */
+    left: 0.5rem;
+    right: 0.5rem;
 }
 button .fas {
-   font-size: 1.3em;
-   color:#2a21da;
+    font-size: 1em;
 }
 .btn:disabled > .fas {
-    color: gray;
+    color: var(--button-disabled);
 }
