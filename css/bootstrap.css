@@ -5174,7 +5174,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .alert-info {
   color: #0c5460;
-  background-color: #d1ecf1;
+  /* background-color: #d1ecf1; */
   border-color: #bee5eb;
 }
 
@@ -6600,7 +6600,7 @@ button.bg-dark:focus {
 }
 
 .border-top {
-  border-top: 1px solid #dee2e6 !important;
+  /* border-top: 1px solid #dee2e6 !important; */
 }
 
 .border-right {
@@ -7875,7 +7875,7 @@ button.bg-dark:focus {
 }
 
 .h-auto {
-  height: auto !important;
+  /* height: auto !important; */
 }
 
 .mw-100 {
@@ -8059,7 +8059,7 @@ button.bg-dark:focus {
 }
 
 .p-0 {
-  padding: 0 !important;
+  /* padding: 0 !important; */
 }
 
 .pt-0,

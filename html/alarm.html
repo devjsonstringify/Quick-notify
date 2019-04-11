@@ -25,14 +25,14 @@
 					<h2 class="card-title text-center text-capitalize text-secondary">Quick-notify</h2>
 				</div>
 			</header>
-			<main class="pl-3 pr-3 pt-2 pb-0 ">
-				<div class="p-2 border mb-3 alert-info rounded position-relative">
+			<main class="pl-3 pr-3 pt-2 pb-0 position-relative h-100">
+				<div class="p-2 border alert-info rounded position-relative">
 					<div class="section p-0" id="notification" ></div>
 					<div class="text-center rounded text-secondary" id="currenTime"><p class="text-dark">Loading...</p></div>
 				</div>
 				
-				<div class="section" id="user-input-wrapper">
-					<div class="shadow-sm p-2 rounded">
+				<div class="section position-relative" id="user-input-wrapper">
+					<div class="mt-2 position-relative">
 						<div class="input-group mb-2" id="btn-wrapper-top">
 							<input
 								type="number"
@@ -51,8 +51,12 @@
 						</div>
 						<div class="mb-2" id="button-groups">
 					</div>
-					<div
-						class="btn-toolbar d-flex"
+				
+				</div>
+				</div>
+
+				<div
+						class="btn-toolbar d-flex p-2"
 						role="toolbar"
 						aria-label="Toolbar with button groups"
 					>
@@ -63,7 +67,7 @@
 							data-toggle="tooltip"
 							title="Activate"
 						>
-							<i class="fas fa-bell"></i>
+							<i class="fas fa-bell text-secondary"></i>
 						</button>
 						<button
 							type="button"
@@ -72,15 +76,12 @@
 							data-toggle="tooltip"
 							title="Cancel"
 						>
-							<i class="fas fa-bell-slash"></i>
+							<i class="fas fa-bell-slash text-secondary"></i>
 						</button>
 					</div>
-				</div>
-				</div>
-
-				
 			</main>
-			<footer class="p-2 "> 
+			<footer class="position-relative"> 
+					
 			</footer>
 		</div>
 		
