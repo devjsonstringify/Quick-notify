@@ -2,9 +2,9 @@
 
 // * Clear all previous settings on chrome start up
 chrome.runtime.onStartup.addListener(function() {
-		chrome.browserAction.setBadgeText({ text: '' })
-	 chrome.alarms.clearAll()
- })
+	chrome.browserAction.setBadgeText({ text: '' })
+	chrome.alarms.clearAll()
+})
 
 // * Notifications
 chrome.alarms.onAlarm.addListener(function(alarms) {
