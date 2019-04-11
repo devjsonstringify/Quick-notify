@@ -16,12 +16,12 @@ chrome.browserAction.getBadgeText({}, function(isActive) {
 	}
 })
 
-// * Set alarm end
-function timeRemaining() {
-	chrome.alarms.getAll(function(alarms) {
-		console.log(alarms)
-	})
-}
+// * Clear alarm setting or fired when an alarm has elapsed
+chrome.alarms.onAlarm.addListener(function(alarms) {
+	chrome.browserAction.setBadgeText({ text: '' })
+	clearAlarm()
+	closeWindow()
+})
 
 // * Events
 document
