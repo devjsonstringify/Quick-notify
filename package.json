@@ -1,0 +1,26 @@
+{
+	"name": "Quick-notify-github",
+	"version": "1.0.0",
+	"description": "This is extension was built by needs, i want something that will notify me in periodically or at a specified time in the future. So i develop this chrome extension with basic user interface and does the job.  Just input the time when to fire or notify you ( for now only in minute(s) is allowed) Then tell something what to remind you about.  Will be adding more features, also if you like my extension let's talk i love talking to you.",
+	"main": "background.js",
+	"scripts": {
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pfcglen/Quick-notify.git"
+	},
+	"keywords": [
+		"chrome-extension",
+		"notification"
+	],
+	"author": "Glen Mark Cabiladas",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/pfcglen/Quick-notify/issues"
+	},
+	"homepage": "https://github.com/pfcglen/Quick-notify#readme",
+	"devDependencies": {
+		"jest": "^24.7.1"
+	}
+}
